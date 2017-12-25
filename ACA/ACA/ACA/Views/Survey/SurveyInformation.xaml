@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACA.Views.Survey.SurveyInformation"
+             BackgroundColor="White"
+             BackgroundImage="homebg.png">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="150" Margin="0,0,0,0" Spacing="20" Padding="15,0,15,0">
+                <!--<Label Text="{Binding Item.Text}" FontSize="Large"/>
+                <Label Text="{Binding Item.Description}" FontSize="Medium"/>-->
+                <RelativeLayout HorizontalOptions="CenterAndExpand" HeightRequest="50" RotationY="180">
+                    <Label  x:Name="lblItemHeader"
+                            LineBreakMode="NoWrap" Margin="0,0,0,0"
+                            HorizontalOptions="CenterAndExpand"  
+                            VerticalOptions="StartAndExpand"
+                            RotationY="180" 
+                            TextColor="Red"
+                            FontSize="35" />
+                </RelativeLayout>
+                <RelativeLayout HorizontalOptions="EndAndExpand" RotationY="180">
+                    <!--<AbsoluteLayout Margin="20,10,0,0">
+                      
+                    </AbsoluteLayout>-->
+                    <AbsoluteLayout Margin="20,10,0,0">
+                        <Label Text="الاسم : " x:Name="lblItemTitle"
+                            LineBreakMode="NoWrap" TextColor="Black"
+                            HorizontalOptions="EndAndExpand"    
+                            RotationY="180"                      
+                            FontSize="20" />
+                        <Label Text="{Binding Item.Text}" x:Name="lblItemtext"
+                            LineBreakMode="NoWrap" TextColor="Black" Margin="200,0,0,0"
+                            HorizontalOptions="EndAndExpand"    
+                            RotationY="180"                      
+                            FontSize="20" />
+                    </AbsoluteLayout>
+                    <AbsoluteLayout Margin="20,45,0,0">
+                        <Label Text="المحافظة : " x:Name="lblSurveyTitle3"
+                            LineBreakMode="NoWrap" TextColor="Black"
+                            HorizontalOptions="EndAndExpand"    
+                            RotationY="180"                      
+                            FontSize="20" />
+                        <Label Text="{Binding Item.Description}" x:Name="lblItemGovernrate"
+                                LineBreakMode="NoWrap" TextColor="Black"
+                                RotationY="180" Margin="200,0,0,0"
+                                FontSize="20" />
+                    </AbsoluteLayout>
+                    <AbsoluteLayout Margin="20,80,0,0">
+                        <Label Text="المنطقة : " x:Name="lblSurvey2"
+                            LineBreakMode="NoWrap" TextColor="Black"
+                            HorizontalOptions="EndAndExpand"    
+                            RotationY="180"                      
+                            FontSize="20" />
+                        <Label Text="{Binding Item.Description}" x:Name="lblItemRegion"
+                                LineBreakMode="NoWrap" TextColor="Black"
+                                RotationY="180" Margin="200,0,0,0"
+                                FontSize="20" />
+                    </AbsoluteLayout>
+                    <AbsoluteLayout Margin="20,115,0,0">
+                        <Label Text="العنوان : " x:Name="lblSurveyTitle4"
+                            LineBreakMode="NoWrap" TextColor="Black"
+                            HorizontalOptions="EndAndExpand"    
+                            RotationY="180"                      
+                            FontSize="20" />
+                        <Label Text="{Binding Item.Description}" x:Name="lblItemAddress"
+                                LineBreakMode="NoWrap" TextColor="Black"
+                                RotationY="180" Margin="200,0,0,0"
+                                FontSize="20" />
+                    </AbsoluteLayout>
+                </RelativeLayout>
+            </StackLayout>
+            <StackLayout HeightRequest="500" VerticalOptions="EndAndExpand" Padding="30,0,0,0">
+                <ListView
+                 x:Name="ItemsListViewDetails" 
+                 SeparatorColor="Transparent"
+                 ItemsSource="{Binding Items}"
+                 VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 BackgroundColor="Transparent"
+                 RefreshCommand="{Binding BindControls}"
+                 IsPullToRefreshEnabled="False"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <RelativeLayout Margin="10,0,10,10" RotationY="180">
+                                    <Image x:Name="itembg" Source="itembg.png" Aspect="Fill" Margin="20,0,-50,0" />
+                                    <Grid HeightRequest="90" >
+                                        <RelativeLayout Grid.Column="0" HorizontalOptions="Start">
+                                            <AbsoluteLayout Margin="90,10,0,0">
+                                                <Label Text="{Binding name}" 
+                                               LineBreakMode="NoWrap" TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               HorizontalOptions="EndAndExpand"    
+                                               RotationY="180"                      
+                                               FontSize="20" />
+                                                <!--</AbsoluteLayout>
+                                            <AbsoluteLayout Margin="90,35,0,0">-->
+                                                <Label Text="{Binding value}" 
+                                                   LineBreakMode="NoWrap" TextColor="Black"
+                                                   RotationY="180"  Margin="200,0,0,0"    
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="16" />
+                                            </AbsoluteLayout>
+                                        </RelativeLayout>
+                                    </Grid>
+                                </RelativeLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,13 @@
+﻿using CheckResolver.Droid;
+
+[assembly: DependencyResolver.Dependency(typeof(Implementation))]
+namespace CheckResolver.Droid
+{
+    public class Implementation : IPlatformSpecific
+    {
+        public string GetString()
+        {
+            return "Android String";
+        }
+    }
+}

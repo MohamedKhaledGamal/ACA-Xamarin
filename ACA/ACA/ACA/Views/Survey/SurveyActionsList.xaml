@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACA.Views.Survey.SurveyActionsList"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             BackgroundColor="White"
+             BackgroundImage="homebg.png">
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem  Text="اضافه اجراء" Order="Primary" Clicked="AddBtn_OnClicked" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+            
+            <ListView
+                      ItemsSource="{Binding Procedures}"
+                      VerticalOptions="FillAndExpand"
+                      HasUnevenRows="true"
+                      SeparatorVisibility="None"
+                      RefreshCommand="{Binding LoadItemsCommand}"
+                      IsPullToRefreshEnabled="true"
+                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                      CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="10"
+                                   Padding="10"
+                                   BackgroundColor="Brown"
+                                   CornerRadius="0">
+                                <StackLayout Padding="10">
+
+                                    <!--inspector name Layout-->
+                                    <StackLayout Orientation="Horizontal"
+                                                 HorizontalOptions="EndAndExpand">
+
+                                        <Label Text="{Binding InspectorName}"
+                                               HorizontalTextAlignment="End"
+                                               TextColor="Beige"
+                                               Style="{DynamicResource ListItemTextStyle}"
+                                               FontSize="18" />
+
+                                        <Label Text="اسم المفتش المسئول "
+                                               HorizontalTextAlignment="End"
+                                               TextColor="Beige"
+                                               Style="{DynamicResource ListItemTextStyle}"
+                                               FontSize="16" />
+                                    </StackLayout>
+
+                                    <!--ProcedureType-->
+                                    <Label
+                                        Text="{Binding ProcedureType}"
+                                        HorizontalTextAlignment="End"
+                                        HorizontalOptions="EndAndExpand"
+                                        TextColor="Beige"
+                                        Style="{DynamicResource ListItemDetailTextStyle}"
+                                        FontSize="15" />
+
+                                    <Grid BackgroundColor="Beige"
+                                        Margin="-20,10,-20,-20"
+                                        HorizontalOptions="FillAndExpand">
+ 
+                                        <!--Report Layout-->
+                                        <StackLayout>
+
+                                            <!--ReportType-->
+                                            <Label Text="{Binding ReportType}"
+                                                   HorizontalTextAlignment="End"
+                                                   Margin="20,15,20,0"
+                                                   TextColor="Brown"
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="13"
+                                                   HorizontalOptions="EndAndExpand"/>
+
+                                            <!--ReportNumber-->
+                                            <Label Text="{Binding ReportNumber}"
+                                                   HorizontalTextAlignment="End"
+                                                   Margin="20,0"
+                                                   TextColor="Brown"
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="13" 
+                                                   HorizontalOptions="EndAndExpand"/>
+
+                                            <!--Organization-->
+                                            <Label Text="{Binding Organization}"
+                                                   HorizontalTextAlignment="End"
+                                                   Margin="20,0,20,20"
+                                                   TextColor="Brown"
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="13"
+                                                   HorizontalOptions="EndAndExpand"/>
+
+
+                                    </StackLayout>  
+                                        
+                                        <!--Current procedure Layout-->
+                                        <StackLayout>
+                                        <!--CurrentProcedureType-->
+                                            <Label Text="{Binding CurrentProcedureType}"
+                                                   HorizontalTextAlignment="End"
+                                                   Margin="20,15,20,0"
+                                                   TextColor="Brown"
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="13" 
+                                                   HorizontalOptions="EndAndExpand"/>
+
+                                            <!--CurrentProcedureDescription-->
+                                            <Label Text="{Binding CurrentProcedureDescription}"
+                                                   HorizontalTextAlignment="End"
+                                                   Margin="20,0,20,20"
+                                                   TextColor="Brown"
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="13"
+                                                   HorizontalOptions="EndAndExpand"/>
+
+
+                                    </StackLayout>
+                                        
+                                    </Grid>
+
+                                </StackLayout>
+                            </Frame>
+                            
+                            
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        <controls:CheckBox DefaultText="Option 1"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="18"/>
+        <controls:CheckBox DefaultText="Option 2"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="18"/>
+        <controls:CheckBox DefaultText="Option 3"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="18"/>
+        <controls:CheckBox DefaultText="Option 4"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="18"/>
+        <controls:CheckBox DefaultText="Option 5"
+                           HorizontalOptions="FillAndExpand"
+                           FontSize="18"/>
+
+    </StackLayout>
+        
+</ContentPage>

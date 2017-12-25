@@ -1,0 +1,13 @@
+﻿using CheckResolver.iOS;
+
+[assembly: DependencyResolver.Dependency(typeof(Implementation))]
+namespace CheckResolver.iOS
+{
+    public class Implementation : IPlatformSpecific
+    {
+        public string GetString()
+        {
+            return "IOS String";
+        }
+    }
+}

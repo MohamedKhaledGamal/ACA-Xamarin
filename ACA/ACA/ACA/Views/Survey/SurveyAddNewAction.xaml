@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACA.Views.Survey.SurveyAddNewAction"
+             BackgroundColor="White"
+             BackgroundImage="homebg.png">
+    <ContentPage.Content>
+        <StackLayout Margin="20,30" Spacing="20">
+
+            <!--Main form-->
+            <Grid ColumnSpacing="20" RowSpacing="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+                <Entry Grid.Column="0"
+                Grid.Row="0"
+                x:Name="EmployeeName"
+                HorizontalTextAlignment="End"/>
+
+                <Label Grid.Column="1" 
+                Grid.Row="0"
+                Text="اسم المفتش المسئول"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"/>
+
+                <Picker
+                Grid.Column="0"
+                Grid.Row="1"
+                x:Name="ProcedureType"
+                HorizontalOptions="FillAndExpand"
+                SelectedIndexChanged="ProcedureType_OnSelectedIndexChanged">
+
+                    <Picker.Items>
+                        <x:String>محضر</x:String>
+                        <x:String>إجراء حالي</x:String>
+                    </Picker.Items>
+
+                </Picker>
+
+                <Label Grid.Column="1" Grid.Row="1"
+                Text="نوع الإجراء"
+                FontSize="15"
+                VerticalTextAlignment="Center"
+                HorizontalTextAlignment="End"/>
+            </Grid>
+
+            <!--line seprator-->
+            <BoxView BackgroundColor="Gray"
+            Opacity="0.5"
+            HeightRequest="1"/>
+
+            <!--2 options based on picker value-->
+
+            <!--option one محضر-->
+            <StackLayout>
+                <!--option one with image layout-->
+                <Grid ColumnSpacing="45" RowSpacing="15" x:Name="OptionOne" IsVisible="False">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Picker
+                Grid.Column="0"
+                Grid.Row="0"
+                HorizontalOptions="FillAndExpand"
+                Title="اختر نوع المحضر">
+
+
+                    </Picker>
+                    <Label Grid.Column="1" Grid.Row="0" Text="نوع المحضر"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+
+                    <Entry Grid.Column="0"
+                   Grid.Row="1"
+                   x:Name="EntryReportNumber"
+                   HorizontalTextAlignment="End"
+                   Keyboard="Numeric"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="رقم المحضر"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+
+                    <Picker
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    HorizontalOptions="FillAndExpand"
+                    Title="اختر الجهة">
+
+
+                    </Picker>
+                    <Label Grid.Column="1" Grid.Row="2" Text="الجهة المختصة"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+
+                    <Button x:Name="OptionOneAttachment"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Text="Attach"
+                    TextColor="Gainsboro"
+                    BackgroundColor="Transparent"
+                    BorderColor="Gray"
+                    BorderWidth="1"
+                    HorizontalOptions="End" 
+                    WidthRequest="100"
+                    BorderRadius="1"
+                    Clicked="OptionOneAttachment_OnClicked"/>
+                    <Label Grid.Column="1" Grid.Row="3" Text="صورة المحضر"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+                </Grid>
+
+                <StackLayout>
+                    <Image x:Name="FileImage"/>
+                </StackLayout>
+
+            </StackLayout>
+
+            <!--option two إجراء حالي-->
+            <Grid x:Name="OptionTwo"
+            ColumnSpacing="45"
+            RowSpacing="15"
+            IsVisible="False">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <Picker
+                Grid.Column="0"
+                Grid.Row="0" 
+                HorizontalOptions="FillAndExpand"
+                Title="اختر نوع الإجراء">
+
+                </Picker>
+                <Label Grid.Column="1" 
+                   Grid.Row="0"
+                   
+                   Text="نوع الإجراء"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+
+                <Entry Grid.Column="0" x:Name="EntryDescription"
+                   Grid.Row="1"
+                   HorizontalTextAlignment="End"
+                   Keyboard="Numeric"/>
+                <Label Grid.Column="1" Grid.Row="1"
+                   Text="الوصف"
+                   FontSize="15"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"/>
+
+            </Grid>
+
+            <Button x:Name="SaveBtn"
+                Clicked="SaveBtn_OnClicked"
+                Text="حفظ"
+                TextColor="Beige"
+                FontAttributes="Bold"
+                FontSize="18"
+                BackgroundColor="Brown"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

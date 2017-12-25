@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Resolver</name>
+    </assembly>
+    <members>
+        <member name="T:DependencyResolver.Resolver">
+            <summary>
+            Provides dependency resolving functions
+            </summary>
+        </member>
+        <member name="M:DependencyResolver.Resolver.Get``1">
+            <summary>
+            Returns instance of implementator of platform specific interface
+            </summary>
+            <typeparam name="TService">Type of service for which implementator should be fined.</typeparam>
+            <returns>Implementator instance</returns>
+        </member>
+    </members>
+</doc>

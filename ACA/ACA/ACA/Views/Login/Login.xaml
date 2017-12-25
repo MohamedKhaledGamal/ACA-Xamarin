@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ACA.Views.Login.Login"
+             >
+    <ContentPage.Content>
+        <Grid x:Name="gridParent" HorizontalOptions="EndAndExpand">
+            
+           
+            <Image x:Name="imgBG" Source="loginbg.png" Aspect="AspectFill" BackgroundColor="White"/>
+            <!--<StackLayout Margin="100,0,100,50">
+                <Image x:Name="imgLogo" Source="logo.png" Margin="20,10,20,20" Aspect="AspectFill"/>
+            </StackLayout>-->
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="20,250,20,0">
+                <!--<Image Source="input.png" Margin="50,30"></Image>-->
+                <ActivityIndicator x:Name="PPLoading" Color="Red" IsRunning="False" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Entry x:Name="txtUserName" Grid.Row="0" FontSize="20"
+                           IsPassword="False" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand"
+                           Text="" HorizontalTextAlignment="End"></Entry>
+                    <Entry x:Name="txtPassword"  IsPassword="True" Grid.Row="1"
+                           HorizontalOptions="FillAndExpand" FontSize="20"
+                           HorizontalTextAlignment="End" VerticalOptions="StartAndExpand"
+                           Text=""></Entry>
+                    <Button x:Name="btnLogin" Grid.Row="2"  BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" Image="loginbtn.png" Clicked="btnLogin_Clicked"></Button>
+
+                    <!--<StackLayout
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-16}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=48}"
+                              Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+
+                        <Entry x:Name="txtUserName" FontSize="20"
+                           IsPassword="False" HorizontalOptions="FillAndExpand"
+                           Text="" HorizontalTextAlignment="End"></Entry>
+                    </StackLayout>-->
+                    
+                    
+                    
+                    <!--<Image Source="input.png" Margin="50,-180,50,0"></Image>-->
+                    
+                    
+                    
+                    <!--<StackLayout
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-16}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=48}"
+                              Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        <Entry x:Name="txtPassword"  IsPassword="True" 
+                           HorizontalOptions="FillAndExpand" FontSize="20"
+                           HorizontalTextAlignment="End"
+                           Text=""></Entry>
+                    </StackLayout>-->
+
+
+
+                    <!--<StackLayout
+                              RelativeLayout.XConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.YConstraint="{ConstraintExpression Type=Constant, Constant=8}"
+                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Constant=-16}"
+                              RelativeLayout.HeightConstraint="{ConstraintExpression Type=Constant, Constant=48}"
+                              Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="EndAndExpand">
+                        <Button x:Name="btnLogin"  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" Image="loginbtn.png" Clicked="btnLogin_Clicked"></Button>
+                    </StackLayout>-->
+                    
+                    
+                    <!--<Entry x:Name="txtUserName" VerticalOptions="EndAndExpand" 
+                       HorizontalOptions="FillAndExpand" HeightRequest="30"
+                       BackgroundColor="Transparent" Text=""
+                       PlaceholderColor="Silver" FontSize="16">
+
+                    </Entry>-->
+                    <!--<Entry x:Name="txtPassword" VerticalOptions="EndAndExpand" 
+                       HorizontalOptions="FillAndExpand" HeightRequest="30"
+                       BackgroundColor="Transparent" PlaceholderColor="Silver" FontSize="16">
+
+                    </Entry>-->
+                </Grid>
+            </StackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

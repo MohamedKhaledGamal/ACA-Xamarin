@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             x:Class="ACA.Views.Temp.ItemsPage"
+              Title="{Binding Title}"
+             x:Name="BrowseItemsPage"
+             BackgroundColor="White"
+             BackgroundImage="homebg.png">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="search.png" Clicked="SearchButton_Clicked" Order="Primary" />
+        <ToolbarItem Text="مزامنة المهام" Clicked="SyncForms_Clicked" Priority="1" Order="Secondary"/>
+        <ToolbarItem Text="مزامنة النتائج" Clicked="SyncResults_Clicked" Priority="1" Order="Secondary"/>
+        <ToolbarItem Text="مزامنة القوائم" Clicked="SyncLookups_Clicked" Priority="1" Order="Secondary"/>
+        <ToolbarItem Text="تغيير كلمة المرور" Clicked="ChangePassword_Clicked" Priority="1" Order="Secondary"/>
+        <ToolbarItem Text="تسجيل الخروج" Clicked="Logout_Clicked" Priority="1" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout HeightRequest="280" Margin="0,0,0,0">
+                <Image x:Name="imgBG" Source="homepanner.png" Aspect="AspectFill" BackgroundColor="White"/>
+            </StackLayout>
+            <StackLayout HeightRequest="20" BackgroundColor="Black">
+
+            </StackLayout>
+            <ListView
+                 x:Name="ItemsListView" 
+                 SeparatorColor="Transparent"
+                 ItemsSource="{Binding Items}"
+                 VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 BackgroundColor="Transparent"
+                 RefreshCommand="{Binding BindListView}"
+                 IsPullToRefreshEnabled="False"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <ViewCell >
+                            <RelativeLayout Margin="10,0,10,10" RotationY="180">
+
+                                <Image x:Name="itembg" Source="itembg.png" Aspect="Fill" Margin="20,0,-50,0" />
+
+                                <Grid HeightRequest="90" >
+                                    <RelativeLayout Grid.Column="0" HorizontalOptions="Start">
+                                        <Image x:Name="report"  Source="reporticon.png" Aspect="AspectFit"/>
+                                    </RelativeLayout>
+                                    <RelativeLayout Grid.Column="0" HorizontalOptions="Start">
+                                        <AbsoluteLayout Margin="90,10,0,0">
+                                            <Label Text="{Binding entityDetails.name}" 
+                                               LineBreakMode="NoWrap" TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               HorizontalOptions="EndAndExpand"    
+                                               RotationY="180"                      
+                                               FontSize="20" />
+                                        </AbsoluteLayout>
+                                        <AbsoluteLayout Margin="90,45,0,0">
+                                            <!--<Label Text="النوع : " 
+                                                   LineBreakMode="NoWrap" TextColor="Black"
+                                                   RotationY="180"      
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="20" />-->
+                                            <Label Text="{Binding entityDetails.typeName}" 
+                                                   LineBreakMode="NoWrap" TextColor="Black"
+                                                   RotationY="180"      
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="20" />
+                                        </AbsoluteLayout>
+                                    </RelativeLayout>
+                                    <RelativeLayout Grid.Column="2" HorizontalOptions="Start">
+                                        <AbsoluteLayout Margin="30,10,0,0">
+                                            <Label 
+                                               Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+                                               LineBreakMode="NoWrap" TextColor="Black"
+                                               Style="{DynamicResource ListItemTextStyle}" 
+                                               HorizontalOptions="EndAndExpand"    
+                                               RotationY="180"                      
+                                               FontSize="20" />
+                                        </AbsoluteLayout>
+                                        <AbsoluteLayout Margin="30,45,0,0">
+                                            <!--<Label Text="الحالة : " 
+                                                   LineBreakMode="NoWrap" TextColor="Black"
+                                                   RotationY="180"      
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="20" />-->
+                                            <Label Text="إستبيان جديد" 
+                                                   LineBreakMode="NoWrap" TextColor="Black"
+                                                   RotationY="180"      
+                                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                                   FontSize="20" />
+                                        </AbsoluteLayout>
+                                    </RelativeLayout>
+                                    <RelativeLayout Grid.Column="4" HorizontalOptions="End">
+                                        <Image x:Name="arrow" Source="arrowicon.png" Aspect="AspectFit"/>
+                                    </RelativeLayout>
+                                </Grid>
+                            </RelativeLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
